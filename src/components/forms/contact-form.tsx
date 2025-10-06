@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { submitContactForm, type ContactFormData, type ContactActionResult } from '@/server/actions/contact';
+import { submitContactForm, type ContactActionResult } from '@/server/actions/contact';
 
 interface FormData {
   name: string;
@@ -129,7 +129,7 @@ export default function ContactForm() {
       <div className="mb-8">
         <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
         <p className="text-neutral-400">
-          Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+            Have a project in mind or want to discuss opportunities? I&apos;d love to hear from you.
         </p>
       </div>
 
@@ -229,7 +229,7 @@ export default function ContactForm() {
         {submitStatus === 'success' && (
           <div className="p-4 bg-green-900 border border-green-700 text-green-100 rounded-md">
             <p className="font-medium">Message sent successfully!</p>
-            <p className="text-sm mt-1">I'll get back to you as soon as possible.</p>
+              <p className="text-sm mt-1">I&apos;ll get back to you as soon as possible.</p>
           </div>
         )}
         

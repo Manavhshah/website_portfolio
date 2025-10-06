@@ -4,6 +4,7 @@ export interface BaseFrontmatter {
   summary: string;
   date: string;
   tags: string[];
+  [key: string]: unknown;
 }
 
 // Project-specific frontmatter
@@ -12,6 +13,7 @@ export interface ProjectFrontmatter extends BaseFrontmatter {
 }
 
 // Insight-specific frontmatter (same as base for now, but can be extended)
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface InsightFrontmatter extends BaseFrontmatter {
   // No additional fields for insights currently
   // Can be extended in the future if needed

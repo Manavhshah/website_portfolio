@@ -25,7 +25,7 @@ export default function ContactPage() {
           <Link href="/" className="inline-flex items-center text-neutral-400 hover:text-white transition-colors mb-6">← Back to home</Link>
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">Contact</h1>
           <p className="text-xl text-neutral-300 max-w-2xl">
-            Let's work together to build something amazing.
+            Let&apos;s work together to build something amazing.
           </p>
         </div>
       </header>

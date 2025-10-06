@@ -36,7 +36,7 @@ function getSlugFromPath(filePath: string): string {
 }
 
 // Helper function to read and parse MDX file
-function readMdxFile(filePath: string): { frontmatter: any; content: string } | null {
+function readMdxFile(filePath: string): { frontmatter: Record<string, unknown>; content: string } | null {
   try {
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data: frontmatter, content } = matter(fileContents);
