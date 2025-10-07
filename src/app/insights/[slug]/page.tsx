@@ -56,21 +56,21 @@ export default function InsightPage({ params }: InsightPageProps) {
   const processedContent = processMDXContent(insight.content);
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="px-6 py-16 sm:px-8 lg:px-12">
-        <div className="max-w-4xl mx-auto">
+      <header className="section-padding gradient-subtle">
+        <div className="container-max">
           <div className="mb-8">
             <Link
               href="/insights"
-              className="inline-flex items-center text-neutral-400 hover:text-white transition-colors mb-6"
+              className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-6"
             >
               ← Back to insights
             </Link>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h1 className="mb-6">
               {insight.frontmatter.title}
             </h1>
-            <p className="text-xl text-neutral-300 mb-8 max-w-3xl">
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl">
               {insight.frontmatter.summary}
             </p>
             
@@ -99,11 +99,11 @@ export default function InsightPage({ params }: InsightPageProps) {
       </header>
 
       {/* Content */}
-      <main className="px-6 pb-16 sm:px-8 lg:px-12">
-        <div className="max-w-4xl mx-auto">
-          <article className="prose prose-invert prose-lg max-w-none">
+      <main className="section-padding">
+        <div className="container-max">
+          <article className="project-content">
             <div 
-              className="prose-content"
+              className="prose prose-lg max-w-none"
               dangerouslySetInnerHTML={{ __html: processedContent }}
             />
           </article>

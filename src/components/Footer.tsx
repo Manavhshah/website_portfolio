@@ -51,7 +51,7 @@ export default function Footer() {
 
   const documents = [
     { name: 'Resume', href: '/documents/Resume Manav September 25.pdf' },
-    { name: 'Economic Report', href: '/documents/economic-report.pdf' },
+    { name: 'Economic Report', href: '/documents/Manav Shah Economic Report.pdf' },
   ];
 
   return (

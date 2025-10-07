@@ -89,15 +89,19 @@ export default function Home() {
           
           <div className="prose prose-lg max-w-none text-muted-foreground">
             <p className="mb-6 leading-relaxed">
-              I&apos;m driven by curiosity and clarity. Whether it&apos;s optimizing a sales funnel or modeling a financial deal, I&apos;m most engaged when turning complex problems into simple, actionable systems.
+              I&apos;ve always been drawn to how things work, not just the mechanics, but the systems behind them. Whether it&apos;s a business model, a market, or a workflow, I like finding the pattern, simplifying it, and turning it into something that scales.
             </p>
             
             <p className="mb-6 leading-relaxed">
-              I thrive on connecting with people: founders, alumni, and peers and translating conversations into opportunities. My time at UIUC and internships across fintech and real estate taught me how to combine analysis with empathy: to move fast, but build right.
+              That curiosity led me from engineering into building automations that save teams hours, forecasts that turn uncertainty into clarity, and products that move ideas off the whiteboard. I&apos;ve learned that progress isn&apos;t about doing everything; it&apos;s about doing the right things in the right order.
+            </p>
+            
+            <p className="mb-6 leading-relaxed">
+              I&apos;m most at home connecting people and ideas, data with intuition, and watching what happens next. Across fintech, real estate, and data systems, I&apos;ve built a habit of moving fast, learning deeply, and leaving better systems behind.
             </p>
             
             <p className="mb-8 leading-relaxed">
-              Outside work, I&apos;m exploring how finance and technology shape decision-making, from options strategies to data-driven investing, and sharing what I learn through small, documented projects.
+              Outside work, I explore how finance and technology shape decisions: from options strategies to AI-driven systems, and share those learnings through small, documented experiments.
             </p>
             
             <p className="mb-8 leading-relaxed">
@@ -189,51 +193,51 @@ export default function Home() {
       </section>
 
       {/* Awards, Recognition, Features Section */}
-      <section className="px-6 py-16 sm:px-8 lg:px-12 bg-neutral-900">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Awards, Recognition, Features</h2>
+      <section className="section-padding bg-card">
+        <div className="container-max">
+          <h2 className="mb-12 text-center">Awards, Recognition, Features</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Richard N. Baxendale Outstanding Junior Award */}
-            <div className="bg-neutral-800 rounded-lg p-6 text-center hover:bg-neutral-700 transition-colors">
+            <div className="card-professional p-6 text-center">
               <div className="text-4xl mb-4">🏆</div>
-              <h3 className="text-xl font-semibold mb-3 text-white">
+              <h3 className="text-xl font-semibold mb-3">
                 Richard N. Baxendale Outstanding Junior Award
               </h3>
-              <p className="text-neutral-300 text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 For leadership, academic excellence, and department impact.
               </p>
             </div>
 
             {/* Tau Beta Pi Honors Society */}
-            <div className="bg-neutral-800 rounded-lg p-6 text-center hover:bg-neutral-700 transition-colors">
+            <div className="card-professional p-6 text-center">
               <div className="text-4xl mb-4">🎓</div>
-              <h3 className="text-xl font-semibold mb-3 text-white">
+              <h3 className="text-xl font-semibold mb-3">
                 Tau Beta Pi Honors Society
               </h3>
-              <p className="text-neutral-300 text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Recognition of academic and professional distinction.
               </p>
             </div>
 
             {/* James Scholar / Dean's List */}
-            <div className="bg-neutral-800 rounded-lg p-6 text-center hover:bg-neutral-700 transition-colors">
+            <div className="card-professional p-6 text-center">
               <div className="text-4xl mb-4">⭐</div>
-              <h3 className="text-xl font-semibold mb-3 text-white">
+              <h3 className="text-xl font-semibold mb-3">
                 James Scholar / Dean&apos;s List
               </h3>
-              <p className="text-neutral-300 text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Consistent top performance across semesters.
               </p>
             </div>
 
             {/* Scholarships and Awards */}
-            <div className="bg-neutral-800 rounded-lg p-6 text-center hover:bg-neutral-700 transition-colors">
+            <div className="card-professional p-6 text-center">
               <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-xl font-semibold mb-3 text-white">
+              <h3 className="text-xl font-semibold mb-3">
                 Scholarships and Awards
               </h3>
-              <div className="text-neutral-300 text-sm leading-relaxed space-y-2">
+              <div className="text-muted-foreground text-sm leading-relaxed space-y-2">
                 <p>Illinois Engineering Achievement Scholarship</p>
                 <p>Illinois Engineering Outstanding Scholarship</p>
                 <p>Tau Beta Pi Award Fund</p>
@@ -315,12 +319,12 @@ export default function Home() {
               </div>
             </a>
             
-            <a
-              href="/documents/economic-report.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
+              <a
+                href="/documents/Manav Shah Economic Report.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
               <div className="bg-neutral-800 rounded-lg p-6 hover:bg-neutral-700 transition-colors text-center">
                 <div className="text-4xl mb-4">📊</div>
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-white">
