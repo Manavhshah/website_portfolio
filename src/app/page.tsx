@@ -29,7 +29,7 @@ export default function Home() {
     "url": process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     "sameAs": [
       "https://github.com/manavshah",
-      "https://linkedin.com/in/manavshah",
+      "https://linkedin.com/in/manav-hitesh-shah",
       "https://twitter.com/manavshah"
     ],
     "jobTitle": "Software Engineer",
@@ -51,30 +51,30 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Hero Section */}
-      <section className="px-6 py-20 sm:px-8 lg:px-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+      <section className="section-padding gradient-subtle">
+        <div className="container-max text-center">
+          <h1 className="animate-fade-in mb-6">
             Manav Shah
           </h1>
-          <p className="text-xl sm:text-2xl text-neutral-300 mb-8 max-w-2xl mx-auto">
-            Building systems that scale. Exploring the intersection of technology and business.
+          <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-slide-up">
+            Building at the intersection of startups, strategy, and finance. I design go-to-market and finance systems that turn ideas into measurable results.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
             <Link
               href="/projects"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
+              className="btn-primary inline-flex items-center justify-center px-6 py-3 rounded-lg"
             >
               View Projects
             </Link>
             <Link
               href="/insights"
-              className="inline-flex items-center justify-center px-6 py-3 border border-neutral-600 text-white font-medium rounded-lg hover:bg-neutral-800 transition-colors"
+              className="btn-secondary inline-flex items-center justify-center px-6 py-3 rounded-lg border"
             >
               Read Insights
             </Link>
@@ -82,14 +82,76 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Me Section */}
+      <section className="section-padding bg-card">
+        <div className="container-max">
+          <h2 className="mb-8 text-center">About Me</h2>
+          
+          <div className="prose prose-lg max-w-none text-muted-foreground">
+            <p className="mb-6 leading-relaxed">
+              I&apos;m driven by curiosity and clarity. Whether it&apos;s optimizing a sales funnel or modeling a financial deal, I&apos;m most engaged when turning complex problems into simple, actionable systems.
+            </p>
+            
+            <p className="mb-6 leading-relaxed">
+              I thrive on connecting with people: founders, alumni, and peers and translating conversations into opportunities. My time at UIUC and internships across fintech and real estate taught me how to combine analysis with empathy: to move fast, but build right.
+            </p>
+            
+            <p className="mb-8 leading-relaxed">
+              Outside work, I&apos;m exploring how finance and technology shape decision-making, from options strategies to data-driven investing, and sharing what I learn through small, documented projects.
+            </p>
+            
+            <p className="mb-8 leading-relaxed">
+              According to my CliftonStrengths, I&apos;m an <strong>Arranger</strong> and <strong>Achiever</strong> — I excel at orchestrating many moving parts while pushing projects to completion. My <strong>Command</strong> gives me the confidence to take initiative and make tough decisions when direction is unclear. With <strong>Focus</strong>, I align energy toward the few priorities that create outsized impact. And my <strong>Strategic</strong> mindset helps me spot patterns early, anticipate obstacles, and position teams to win.
+            </p>
+          </div>
+          
+          {/* CliftonStrengths Grid */}
+          <div className="mt-12">
+            <h3 className="mb-6 text-center">CliftonStrengths Grid</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse border border-border rounded-lg overflow-hidden">
+                <thead>
+                  <tr className="bg-muted">
+                    <th className="border border-border px-4 py-3 text-left font-semibold">Strength</th>
+                    <th className="border border-border px-4 py-3 text-left font-semibold">How it shows up in my work</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="border border-border px-4 py-3 font-medium">Arranger</td>
+                    <td className="border border-border px-4 py-3 text-muted-foreground">I organize people, tools, and timelines into efficient systems that keep momentum.</td>
+                  </tr>
+                  <tr className="bg-muted/50">
+                    <td className="border border-border px-4 py-3 font-medium">Achiever</td>
+                    <td className="border border-border px-4 py-3 text-muted-foreground">I set high standards and push projects from idea to measurable result.</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-border px-4 py-3 font-medium">Command</td>
+                    <td className="border border-border px-4 py-3 text-muted-foreground">I lead with clarity and confidence, especially when others need direction.</td>
+                  </tr>
+                  <tr className="bg-muted/50">
+                    <td className="border border-border px-4 py-3 font-medium">Focus</td>
+                    <td className="border border-border px-4 py-3 text-muted-foreground">I prioritize ruthlessly to finish what matters most.</td>
+                  </tr>
+                  <tr>
+                    <td className="border border-border px-4 py-3 font-medium">Strategic</td>
+                    <td className="border border-border px-4 py-3 text-muted-foreground">I see patterns quickly and plan alternative paths to reach goals faster.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
-      <section className="px-6 py-16 sm:px-8 lg:px-12 bg-neutral-900">
-        <div className="max-w-6xl mx-auto">
+      <section className="section-padding">
+        <div className="container-max">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold">Projects</h2>
+            <h2>Projects</h2>
             <Link
               href="/projects"
-              className="text-neutral-400 hover:text-white transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
             >
               View all →
             </Link>
@@ -102,18 +164,18 @@ export default function Home() {
                 href={`/projects/${project.slug}`}
                 className="group block"
               >
-                <div className="bg-neutral-800 rounded-lg p-6 hover:bg-neutral-700 transition-colors">
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-white">
+                <div className="card-professional p-6">
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                     {project.frontmatter.title}
                   </h3>
-                  <p className="text-neutral-400 mb-4 line-clamp-3">
+                  <p className="text-muted-foreground mb-4 line-clamp-3">
                     {project.frontmatter.summary}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.frontmatter.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-neutral-700 text-neutral-300 text-xs rounded"
+                        className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded"
                       >
                         {tag}
                       </span>
@@ -122,6 +184,62 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Awards, Recognition, Features Section */}
+      <section className="px-6 py-16 sm:px-8 lg:px-12 bg-neutral-900">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Awards, Recognition, Features</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Richard N. Baxendale Outstanding Junior Award */}
+            <div className="bg-neutral-800 rounded-lg p-6 text-center hover:bg-neutral-700 transition-colors">
+              <div className="text-4xl mb-4">🏆</div>
+              <h3 className="text-xl font-semibold mb-3 text-white">
+                Richard N. Baxendale Outstanding Junior Award
+              </h3>
+              <p className="text-neutral-300 text-sm leading-relaxed">
+                For leadership, academic excellence, and department impact.
+              </p>
+            </div>
+
+            {/* Tau Beta Pi Honors Society */}
+            <div className="bg-neutral-800 rounded-lg p-6 text-center hover:bg-neutral-700 transition-colors">
+              <div className="text-4xl mb-4">🎓</div>
+              <h3 className="text-xl font-semibold mb-3 text-white">
+                Tau Beta Pi Honors Society
+              </h3>
+              <p className="text-neutral-300 text-sm leading-relaxed">
+                Recognition of academic and professional distinction.
+              </p>
+            </div>
+
+            {/* James Scholar / Dean's List */}
+            <div className="bg-neutral-800 rounded-lg p-6 text-center hover:bg-neutral-700 transition-colors">
+              <div className="text-4xl mb-4">⭐</div>
+              <h3 className="text-xl font-semibold mb-3 text-white">
+                James Scholar / Dean&apos;s List
+              </h3>
+              <p className="text-neutral-300 text-sm leading-relaxed">
+                Consistent top performance across semesters.
+              </p>
+            </div>
+
+            {/* Scholarships and Awards */}
+            <div className="bg-neutral-800 rounded-lg p-6 text-center hover:bg-neutral-700 transition-colors">
+              <div className="text-4xl mb-4">💰</div>
+              <h3 className="text-xl font-semibold mb-3 text-white">
+                Scholarships and Awards
+              </h3>
+              <div className="text-neutral-300 text-sm leading-relaxed space-y-2">
+                <p>Illinois Engineering Achievement Scholarship</p>
+                <p>Illinois Engineering Outstanding Scholarship</p>
+                <p>Tau Beta Pi Award Fund</p>
+                <p>Industrial and Enterprise Systems Engineering Scholarship</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -175,6 +293,48 @@ export default function Home() {
         </div>
       </section>
 
-      </div>
+      {/* Documents Section */}
+      <section className="px-6 py-16 sm:px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Documents</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            <a
+              href="/documents/Resume Manav September 25.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
+            >
+              <div className="bg-neutral-800 rounded-lg p-6 hover:bg-neutral-700 transition-colors text-center">
+                <div className="text-4xl mb-4">📄</div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-white">
+                  Resume
+                </h3>
+                <p className="text-neutral-400 text-sm">
+                  Download my latest resume and professional background
+                </p>
+              </div>
+            </a>
+            
+            <a
+              href="/documents/economic-report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
+            >
+              <div className="bg-neutral-800 rounded-lg p-6 hover:bg-neutral-700 transition-colors text-center">
+                <div className="text-4xl mb-4">📊</div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-white">
+                  Economic Report
+                </h3>
+                <p className="text-neutral-400 text-sm">
+                  Analysis and insights on economic trends and market conditions
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
   );
 }
