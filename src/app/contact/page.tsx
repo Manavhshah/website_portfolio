@@ -15,10 +15,10 @@ export default function ContactPage() {
         <div className="container-max">
           <Link href="/" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-6">← Back to home</Link>
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">Contact</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mb-8">
+          <p className="text-xl text-muted-foreground max-w-2xl mb-6">
             I&apos;m always open to new conversations, whether it&apos;s about startup strategy, business development, or finance-tech intersections.
           </p>
-          <p className="text-lg text-muted-foreground max-w-2xl mb-12">
+          <p className="text-lg text-muted-foreground max-w-2xl mb-8">
             Let&apos;s talk!
           </p>
         </div>
@@ -27,7 +27,7 @@ export default function ContactPage() {
       {/* Quick Contact Buttons */}
       <section className="section-padding bg-card">
         <div className="container-max">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {/* Copy Email Button */}
             <div className="col-span-2 lg:col-span-1">
               <CopyEmailButton />
@@ -38,7 +38,7 @@ export default function ContactPage() {
               href="https://linkedin.com/in/manav-hitesh-shah"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group"
+              className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group border border-border"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">🔗</div>
@@ -52,7 +52,7 @@ export default function ContactPage() {
               href="https://calendar.app.google/zdiDM4Z64SCFxFJb6"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group"
+              className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group border border-border"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">📅</div>
@@ -64,7 +64,7 @@ export default function ContactPage() {
             {/* Download Resume Button */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group w-full"
+              className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group w-full border border-border"
             >
               <div className="text-center">
                 <div className="text-2xl mb-2">📄</div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
       {/* Contact Form */}
       <main className="section-padding">
         <div className="container-max">
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <h2 className="text-2xl font-bold mb-4">Or send me a message</h2>
           </div>
           <ContactForm />

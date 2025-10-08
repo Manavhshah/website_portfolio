@@ -18,14 +18,14 @@ export default function CopyEmailButton() {
   return (
     <button
       onClick={handleCopyEmail}
-      className="flex items-center justify-center p-6 bg-neutral-800 rounded-lg hover:bg-neutral-700 transition-colors group w-full"
+      className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group w-full border border-border"
     >
       <div className="text-center">
-        <div className="text-3xl mb-3">📧</div>
-        <h3 className="text-lg font-semibold mb-2 group-hover:text-white">
+        <div className="text-2xl mb-2">📧</div>
+        <h3 className="text-sm font-semibold mb-1 group-hover:text-foreground">
           {copied ? 'Copied!' : 'Copy Email'}
         </h3>
-        <p className="text-sm text-neutral-400">manav.shah0304@gmail.com</p>
+        <p className="text-xs text-muted-foreground">manav.shah0304@gmail.com</p>
       </div>
     </button>
   );

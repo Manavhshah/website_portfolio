@@ -40,10 +40,10 @@ export default function ProjectsPageClient({ projects, allTags }: ProjectsPageCl
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedTag(null)}
-                className={`px-3 py-1 text-sm rounded-full transition-colors ${
+                className={`px-3 py-1 text-sm rounded-full transition-colors border ${
                   selectedTag === null
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-muted text-muted-foreground hover:bg-muted/80 border-border'
                 }`}
               >
                 All
@@ -52,10 +52,10 @@ export default function ProjectsPageClient({ projects, allTags }: ProjectsPageCl
                 <button
                   key={tag}
                   onClick={() => setSelectedTag(tag)}
-                  className={`px-3 py-1 text-sm rounded-full transition-colors ${
+                  className={`px-3 py-1 text-sm rounded-full transition-colors border ${
                     selectedTag === tag
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                      ? 'bg-primary text-primary-foreground border-primary'
+                      : 'bg-muted text-muted-foreground hover:bg-muted/80 border-border'
                   }`}
                 >
                   {tag}
@@ -91,7 +91,7 @@ export default function ProjectsPageClient({ projects, allTags }: ProjectsPageCl
                       {project.frontmatter.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded"
+                          className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded border border-border"
                         >
                           {tag}
                         </span>
