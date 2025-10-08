@@ -1,6 +1,11 @@
 /* Tailwind CSS v4 */
 @import "tailwindcss";
+/* Include all app, components, content, and root files for class scanning */
 @source "./**/*.{ts,tsx,mdx}";
+@source "../**/*.{ts,tsx,mdx}";
+@source "../../**/*.{ts,tsx,mdx}";
+@source "../../src/content/**/*.{md,mdx}";
+@source "../../mdx-components.tsx";
 
 :root {
   /* theme variables (raw values) */
