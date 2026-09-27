@@ -1,0 +1,77 @@
+---
+title: "Building go-to-market from zero at an AI testing startup"
+summary: "First GTM hire at Shiplight. Sourcing, outbound, launch, partnerships, and the measurement systems that made growth legible to the founders."
+org: "Shiplight"
+role: "Founding GTM Lead"
+period: "Jun 2026 — Present"
+date: "2026-06-01"
+tags: ["Go-to-market", "Growth engineering", "Outbound"]
+featured: true
+order: 1
+highlights:
+  - value: "54"
+    label: "merged pull requests across three company repos"
+  - value: "35%"
+    label: "reply rate across ~400 LinkedIn conversations"
+  - value: "3.3×"
+    label: "referring domains, 148 to 482, June to September"
+---
+
+<Lede>
+Shiplight builds AI agents that write and run end-to-end software tests. I joined in June 2026 as the first go-to-market hire, reporting to the founders, with a mandate that was one sentence long: find the people who need this, and make it easy for them to say yes.
+</Lede>
+
+## The situation
+
+A technical product, a technical buyer, two founders who were still doing every sales conversation themselves, and a self-serve launch on the calendar. There was no pipeline system, no reliable funnel reporting, and no repeatable way to find developers who were already adopting AI coding tools.
+
+The job was not to run a playbook. It was to build one while running it.
+
+## What I built
+
+### A sourcing engine based on behavior, not titles
+
+Title-based lists were producing generic outreach. I wrote a Python collector that reads public GitHub activity around spec-driven development, hydrates the profiles, and normalizes company domains. It produced research on 4,500+ developer profiles and nearly 600 organizations, which we then enriched and qualified before anyone was contacted.
+
+I treat those signals as research inputs, not intent. A repository action does not mean someone is buying. It means they are worth understanding.
+
+### Outbound that people actually answered
+
+I ran persona-based LinkedIn outreach through my own sender account: 2,300+ contacts reached, nearly 400 message conversations started, and a 35% reply rate as reported by the platform. The interesting work was not the sequence. It was reading each reply and deciding whether to ask a discovery question, follow up, or suggest a call, and writing that judgment down as reusable guidance so the founders' voice stayed consistent.
+
+### Funnel reporting the founders could trust
+
+When I audited the analytics, a "lead" event was firing on contact-page views. Sixty-eight supposed leads were page views. Signup queries silently capped at 100 rows. "Activation" meant answering a short survey.
+
+I rebuilt the reporting across GA4, PostHog, and Google Search Console, redefined activation as a real test run by the signup account, and reconciled registrations into external signups and activated accounts. The result was a number the team could reason about, which mattered more than a bigger one.
+
+### Search and AI discovery infrastructure
+
+I owned technical SEO and AI-search discoverability for the marketing site: structured data, an `llms.txt` that actually linked to things, and a recurring indexing monitor with history, notifications, and catch-up after downtime. The first honest run exposed 62 unindexed URLs out of 240. Later runs reached full coverage of the monitored inventory.
+
+Alongside targeted backlink campaigns and editorial partnerships the team ran, referring domains grew from 148 to 482 and Ahrefs Domain Rating rose from 5 to 30 between June and September.
+
+### Launch, content, and video
+
+For the August self-serve launch, the founder asked me to drive execution while he was unavailable: launch video, warm-contact emails, social timing, partner demos, and launch-day communications. I iterated the launch video to a final cut, then built a reusable video production workflow in Python and React/Remotion covering scripts, animation, narration, captions, and publication checks. Two educational videos and a repaired Dev.to channel followed.
+
+<Stats
+  cols={3}
+  items={[
+    { value: "4,553", label: "developer profiles researched" },
+    { value: "2,343", label: "contacts reached from my account" },
+    { value: "5 → 30", label: "Ahrefs Domain Rating, Jun–Sep" },
+  ]}
+/>
+
+## How I worked
+
+I used coding agents heavily. My job was choosing the problem, supplying the customer and product context, directing the implementation, and validating the result. Fifty-four merged pull requests across three repositories is the paper trail, but the point is that a go-to-market person no longer has to wait for engineering to fix the funnel.
+
+<Callout>
+Numbers here follow the boundaries in my own records. Reply rates are platform-reported and include partnership outreach. Search and referral trends are team results during the period, not a causal measure of my work alone.
+</Callout>
+
+## What I took from it
+
+Growth is a systems problem before it is a copywriting problem. The fastest wins came from making things measurable, then trusting the measurement enough to change direction.

@@ -1,96 +1,114 @@
-'use client';
+import type { Metadata } from "next";
+import { ArrowUpRight, Calendar, FileText, Github, Linkedin, Mail } from "lucide-react";
+import { site } from "@/content/site";
+import PageHeader from "@/components/PageHeader";
+import CopyEmail from "@/components/CopyEmail";
+import Reveal from "@/components/Reveal";
 
-import { useState } from 'react';
-import ContactForm from '@/components/forms/contact-form';
-import CopyEmailButton from '@/components/CopyEmailButton';
-import ResumeDownloadModal from '@/components/ResumeDownloadModal';
-import Link from 'next/link';
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Email, LinkedIn, or thirty minutes on the calendar. Whichever is easiest.",
+  alternates: { canonical: "/contact" },
+};
 
 export default function ContactPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const channels = [
+    {
+      icon: Calendar,
+      label: "Book 30 minutes",
+      hint: "Pick a slot on my Google Calendar",
+      href: site.links.calendar,
+      external: true,
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      hint: "Connect or message me there",
+      href: site.links.linkedin,
+      external: true,
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      hint: "Code, mostly go-to-market tooling",
+      href: site.links.github,
+      external: true,
+    },
+    {
+      icon: FileText,
+      label: "Résumé",
+      hint: "One page, PDF, September 2026",
+      href: site.links.resume,
+      external: true,
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <header className="section-padding gradient-subtle">
-        <div className="container-max">
-          <Link href="/" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-6">← Back to home</Link>
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">Contact</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mb-6">
-            I&apos;m always open to new conversations, whether it&apos;s about startup strategy, business development, or finance-tech intersections.
-          </p>
-          <p className="text-lg text-muted-foreground max-w-2xl mb-8">
-            Let&apos;s talk!
-          </p>
-        </div>
-      </header>
-
-      {/* Quick Contact Buttons */}
-      <section className="section-padding bg-card">
-        <div className="container-max">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {/* Copy Email Button */}
-            <div className="col-span-2 lg:col-span-1">
-              <CopyEmailButton />
-            </div>
-
-            {/* LinkedIn Button */}
-            <a
-              href="https://linkedin.com/in/manav-hitesh-shah"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group border border-border"
-            >
-              <div className="text-center">
-                <div className="text-2xl mb-2">🔗</div>
-                <h3 className="text-sm font-semibold mb-1 group-hover:text-foreground">LinkedIn</h3>
-                <p className="text-xs text-muted-foreground">Connect with me</p>
-              </div>
-            </a>
-
-            {/* Book Meeting Button */}
-            <a
-              href="https://calendar.app.google/zdiDM4Z64SCFxFJb6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group border border-border"
-            >
-              <div className="text-center">
-                <div className="text-2xl mb-2">📅</div>
-                <h3 className="text-sm font-semibold mb-1 group-hover:text-foreground">Book Meeting</h3>
-                <p className="text-xs text-muted-foreground">30 min chat</p>
-              </div>
-            </a>
-
-            {/* Download Resume Button */}
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="flex items-center justify-center p-4 bg-muted rounded-lg hover:bg-muted/80 transition-colors group w-full border border-border"
-            >
-              <div className="text-center">
-                <div className="text-2xl mb-2">📄</div>
-                <h3 className="text-sm font-semibold mb-1 group-hover:text-foreground">Resume</h3>
-                <p className="text-xs text-muted-foreground">Download PDF</p>
-              </div>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <main className="section-padding">
-        <div className="container-max">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold mb-4">Or send me a message</h2>
-          </div>
-          <ContactForm />
-        </div>
-      </main>
-
-      {/* Resume Download Modal */}
-      <ResumeDownloadModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+    <>
+      <PageHeader
+        eyebrow="Contact"
+        title={
+          <>
+            Let&apos;s <em className="text-accent">talk.</em>
+          </>
+        }
+        intro="Founders building something early, people working on go-to-market problems, or anyone with an idea they cannot stop thinking about. I answer email the same day."
       />
-    </div>
+
+      <section className="container-page pb-20">
+        <Reveal>
+          <div className="rounded-lg border border-line bg-bg-elevated p-6 sm:p-8">
+            <p className="eyebrow inline-flex items-center gap-2">
+              <Mail className="h-3.5 w-3.5" aria-hidden />
+              Email, the best way
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a
+                href={`mailto:${site.email}`}
+                className="font-display text-2xl text-fg transition-colors hover:text-accent sm:text-4xl"
+              >
+                {site.email}
+              </a>
+              <CopyEmail email={site.email} />
+            </div>
+          </div>
+        </Reveal>
+
+        <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+          {channels.map((c, i) => (
+            <Reveal as="li" key={c.label} delay={0.05 * (i + 1)}>
+              <a
+                href={c.href}
+                target={c.external ? "_blank" : undefined}
+                rel={c.external ? "noopener noreferrer" : undefined}
+                className="group flex h-full items-start gap-4 rounded-lg border border-line p-5 transition-colors hover:border-line-strong hover:bg-bg-elevated"
+              >
+                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-line bg-surface text-fg-soft">
+                  <c.icon className="h-4 w-4" aria-hidden />
+                </span>
+                <span className="flex-1">
+                  <span className="flex items-center justify-between gap-2 text-fg">
+                    {c.label}
+                    <ArrowUpRight
+                      className="h-4 w-4 text-faint transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
+                      aria-hidden
+                    />
+                  </span>
+                  <span className="mt-1 block text-sm text-muted">{c.hint}</span>
+                </span>
+              </a>
+            </Reveal>
+          ))}
+        </ul>
+
+        <Reveal delay={0.3}>
+          <p className="mt-10 max-w-xl text-sm leading-relaxed text-faint">
+            Based in the {site.location}. Happy to meet in person in San Francisco, or on a call
+            from anywhere. If you are a student figuring out the engineering-to-business path, I
+            make time for those conversations too.
+          </p>
+        </Reveal>
+      </section>
+    </>
   );
 }

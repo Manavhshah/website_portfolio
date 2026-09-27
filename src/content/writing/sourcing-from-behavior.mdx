@@ -1,0 +1,42 @@
+---
+title: "Sourcing from behavior, not titles"
+summary: "Why I stopped building prospect lists from job titles and started building them from what people actually do in public, and how to keep that honest."
+date: "2026-08-20"
+tags: ["Go-to-market", "Outbound", "GTM engineering"]
+---
+
+<Lede>
+A list of "engineering leaders at Series A companies" is a list of people who share a job title. It says nothing about whether any of them has the problem you solve this month.
+</Lede>
+
+At Shiplight we sell to teams adopting AI coding tools and looking for a way to test what those tools produce. That is not a title. It is a behavior, and behavior leaves traces.
+
+## What we looked for
+
+Spec-driven development was the tell. Teams that write specifications for agents to implement are the teams that end up with a lot of generated code and a testing problem. So I wrote a Python collector that reads public GitHub activity around that pattern: issues, pull requests, forks, and actual spec files in repositories. It hydrates the profiles, normalizes company domains, dedupes, caches raw responses, and respects the rate limits.
+
+The output was roughly 5,300 signal rows describing 4,500 unique people and nearly 600 organizations.
+
+## What a signal is not
+
+This is where most "intent data" goes wrong. A star, a fork, or a comment is not buying intent. It is a reason to look closer. So the raw collector output never became the outreach list. It became the research queue.
+
+From there:
+
+1. **Enrich.** Who is this person, what does the company do, how big is it, does it plausibly ship software the way we help with.
+2. **Qualify.** Does the behavior match the problem, or is it noise. A student experimenting with a spec template is not a buyer. A platform team adding spec files across twenty repositories might be.
+3. **Personalize from the evidence.** The outreach references what they are doing, not what their title suggests they might care about.
+
+## Why it worked better
+
+Two reasons. First, the conversation opens with something true about the recipient, which is rare enough to earn a reply. Second, the list is self-refreshing. Titles change once a year. Behavior changes every week, and the collector runs on a schedule.
+
+## Keeping it honest
+
+I keep three boundaries in front of me:
+
+- Signals are research inputs. The conversion rate of a signal is not established until you measure it.
+- A big CSV is not an asset. Enrichment quality matters more than row count.
+- Do not multiply a list by an imagined deal size. That number will end up in a deck and someone will believe it.
+
+The best thing about sourcing from behavior is that it forces you to actually understand what the person is doing. That understanding is the product. The list is a byproduct.

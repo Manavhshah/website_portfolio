@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# manavshah.site
 
-## Getting Started
+Personal site for Manav Shah. Next.js 15 App Router, Tailwind CSS v4, MDX content, no database.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build, also validates every content file
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_SITE_URL` (for example `https://manavshah.com`) in production so canonical URLs, the sitemap, and Open Graph tags use the real domain. On Vercel this falls back to the deployment URL automatically.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| What | Where |
+|---|---|
+| Name, role, email, links, nav, one-line status | `src/content/site.ts` |
+| Career and education timeline | `src/content/timeline.ts` |
+| Case studies (one file each) | `src/content/work/*.mdx` |
+| Essays (one file each) | `src/content/writing/*.mdx` |
+| About page prose, strengths, campus list, honors | `src/app/about/page.tsx` |
+| Home page capability list and hero copy | `src/app/page.tsx` |
+| Résumé PDF | `public/documents/Manav_Shah_Resume.pdf` |
+| Photos | `public/images/` |
+| Colors, type, spacing tokens, prose styles | `src/app/globals.css` |
+| MDX components (`Lede`, `Stats`, `Callout`) | `src/lib/mdx.tsx` |
 
-## Learn More
+The filename of a content file is its URL: `src/content/work/shiplight.mdx` becomes `/work/shiplight`.
 
-To learn more about Next.js, take a look at the following resources:
+## Add a case study
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create `src/content/work/<slug>.mdx`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```mdx
+---
+title: "One sentence that says what you did and why it mattered"
+summary: "Two sentences for the card and search results."
+org: "Company"
+role: "Your title"
+period: "Jan 2027 — Present"
+date: "2027-01-01"            # used for sorting, newest first
+tags: ["Go-to-market", "Growth engineering"]
+featured: true                # optional: show on the home page (max 3)
+order: 1                      # optional: order among featured
+status: "Paused"              # optional: pill on the card
+link:                         # optional
+  href: "https://example.com"
+  label: "example.com"
+highlights:                   # optional: up to three headline numbers
+  - value: "54"
+    label: "merged pull requests"
+---
 
-## Deploy on Vercel
+<Lede>
+Opening paragraph, set large. One or two sentences.
+</Lede>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## The situation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Plain Markdown from here. Headings, lists, links, tables, bold all work.
+
+<Stats cols={3} items={[
+  { value: "4,553", label: "profiles researched" },
+  { value: "35%", label: "reply rate" },
+  { value: "5 → 30", label: "Domain Rating" },
+]} />
+
+<Callout>
+A caveat or boundary on the numbers above.
+</Callout>
+```
+
+Run `npm run build`. A missing required field fails the build with the file and field named.
+
+## Add an essay
+
+Create `src/content/writing/<slug>.mdx` with `title`, `summary`, `date`, and `tags` in the frontmatter. Reading time is computed. Same components are available.
+
+## Update the résumé
+
+Replace `public/documents/Manav_Shah_Resume.pdf`. Keep the filename so existing links keep working.
+
+## Update the status line or a link
+
+Edit `src/content/site.ts`. The `now` field is the one-sentence status under the hero photo.
+
+## Deploy
+
+The repo is meant to deploy on Vercel with defaults. Add `NEXT_PUBLIC_SITE_URL` in the project settings once a domain is attached.

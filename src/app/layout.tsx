@@ -1,96 +1,77 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
+import { site, siteUrl } from "@/content/site";
+import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl()),
   title: {
-    default: "Manav Shah - Portfolio",
-    template: "%s | Manav Shah"
+    default: `${site.name} — ${site.tagline}`,
+    template: `%s — ${site.name}`,
   },
-  description: "Portfolio website showcasing projects, insights, and professional experience. Building systems that scale and exploring the intersection of technology and business.",
-  keywords: ["portfolio", "software engineer", "developer", "technology", "business", "projects", "insights"],
-  authors: [{ name: "Manav Shah" }],
-  creator: "Manav Shah",
-  publisher: "Manav Shah",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
-  alternates: {
-    canonical: '/',
-  },
+  description: site.description,
+  authors: [{ name: site.fullName }],
+  creator: site.fullName,
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: '/',
-    title: 'Manav Shah - Portfolio',
-    description: 'Portfolio website showcasing projects, insights, and professional experience. Building systems that scale and exploring the intersection of technology and business.',
-    siteName: 'Manav Shah Portfolio',
-    images: [
-      {
-        url: '/images/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'Manav Shah - Portfolio',
-      },
-    ],
+    type: "website",
+    locale: "en_US",
+    siteName: site.name,
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+    url: "/",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Manav Shah - Portfolio',
-    description: 'Portfolio website showcasing projects, insights, and professional experience. Building systems that scale and exploring the intersection of technology and business.',
-    images: ['/images/og.png'],
-    creator: '@manavshah',
+    card: "summary_large_image",
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
-  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: "#151412",
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* Skip link for accessibility */}
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
+    >
+      <body className="min-h-dvh flex flex-col">
         <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white text-black px-4 py-2 rounded-md font-medium z-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-fg focus:font-medium"
         >
-          Skip to main content
+          Skip to content
         </a>
-        <Navigation />
-        <main id="main-content" className="min-h-screen">
+        <Nav />
+        <main id="main" className="flex-1">
           {children}
         </main>
         <Footer />

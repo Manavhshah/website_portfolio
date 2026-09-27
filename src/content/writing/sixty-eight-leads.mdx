@@ -1,0 +1,35 @@
+---
+title: "Sixty-eight leads that were page views"
+summary: "What I learned rebuilding a startup's funnel reporting from the event definitions up, and why a smaller true number beats a bigger false one."
+date: "2026-09-10"
+tags: ["Growth", "Analytics", "Startups"]
+---
+
+<Lede>
+The dashboard said we had sixty-eight leads. We had sixty-eight people who had looked at the contact page.
+</Lede>
+
+When I started auditing our growth reporting at Shiplight, I expected to find gaps. I did not expect to find that the most important number in the company was a definition error. The "lead" event fired on a page view. Our custom forms were not reliably producing a success event at all. So the founders were looking at a chart that went up and to the right for reasons that had nothing to do with anyone wanting to buy.
+
+## The problem underneath the problem
+
+That was not the only one. A signup query silently stopped at one hundred rows, so the count froze the moment we got past a hundred users. "Onboarding complete" meant the person had answered a short survey, not that they had run a test. AI-referral traffic was undercounted by roughly forty percent because the source-domain list was stale.
+
+None of these were dramatic bugs. Each was a reasonable shortcut somebody took under time pressure. Together they produced a funnel nobody could reason about.
+
+## What I changed
+
+1. **Explicit success tracking.** A lead is a submitted form, confirmed by the success path, not a view of the page the form lives on.
+2. **Activation means use.** An account is activated when it runs a real test or recording, not when it finishes a survey.
+3. **Like-for-like windows.** Every comparison uses the same 28-day boundaries, and the query boundaries were fixed so they no longer cap silently.
+4. **Separate the suspects.** Internal accounts and obvious test signups are flagged and removed before the numbers reach the founders. Personal-email users are kept, because real developers sign up with Gmail.
+
+One reconciliation took 168 raw registrations down to 153 external signups and 20 activated accounts. That is a much less flattering chart. It is also the first one anybody could act on.
+
+## The lesson I keep
+
+A metric is a claim. It has a scope, a denominator, and a boundary, and the moment you lose track of those it stops being information and becomes decoration.
+
+When I write up any number now, I write the boundary next to it. "Platform-reported reply rate, my sender account, mixed campaigns." "Team trend across adjacent windows, not causal." It feels pedantic until the day someone makes a decision based on it.
+
+The founders did not need a bigger number. They needed one they could trust enough to change direction. That turned out to be the most valuable thing I built all summer, and it was mostly deleting things.
