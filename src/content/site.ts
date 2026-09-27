@@ -8,7 +8,7 @@ export const site = {
   role: "Founding GTM Lead at Shiplight",
   tagline: "Engineer who builds the commercial machine.",
   description:
-    "Manav Shah is an industrial engineer turned founding go-to-market operator. He builds the systems that turn a product into a business: sourcing, outreach, measurement, content, and launches.",
+    "Industrial engineer turned founding go-to-market operator. Sourcing, outbound, measurement, and launches for early-stage startups.",
   location: "San Francisco Bay Area",
   email: "manav.shah0304@gmail.com",
   links: {
@@ -25,7 +25,7 @@ export const site = {
     { label: "Contact", href: "/contact" },
   ],
   /** Short status line shown on the home page. Keep it to one sentence. */
-  now: "Leading go-to-market at Shiplight, an AI software-testing startup, and building the growth systems behind its self-serve launch.",
+  now: "Leading go-to-market at Shiplight, an AI software-testing startup.",
 } as const;
 
 export function siteUrl(): string {

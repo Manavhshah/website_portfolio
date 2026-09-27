@@ -16,8 +16,8 @@ export default function WritingPage() {
     <>
       <PageHeader
         eyebrow="Writing"
-        title="Notes from the work"
-        intro="Short, specific, and written after doing the thing. Mostly go-to-market, measurement, and what founders taught me."
+        title="Writing"
+        intro="Short notes, written after doing the thing."
       />
       <section className="container-page pb-16">
         <div className="border-b border-line">

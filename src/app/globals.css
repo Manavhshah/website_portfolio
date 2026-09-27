@@ -13,21 +13,22 @@
 }
 
 @theme {
-  --color-bg: oklch(0.135 0.006 75);
-  --color-bg-elevated: oklch(0.165 0.007 75);
-  --color-surface: oklch(0.19 0.008 75);
-  --color-surface-hover: oklch(0.22 0.009 75);
-  --color-fg: oklch(0.94 0.008 80);
-  --color-fg-soft: oklch(0.78 0.01 80);
-  --color-muted: oklch(0.62 0.012 80);
-  --color-faint: oklch(0.45 0.01 80);
-  --color-line: oklch(1 0 0 / 9%);
-  --color-line-strong: oklch(1 0 0 / 16%);
-  --color-accent: oklch(0.82 0.13 78);
-  --color-accent-soft: oklch(0.82 0.13 78 / 14%);
-  --color-accent-fg: oklch(0.16 0.03 78);
+  /* Warm paper light theme */
+  --color-bg: oklch(0.985 0.005 85);
+  --color-bg-elevated: oklch(0.975 0.006 85);
+  --color-surface: oklch(0.955 0.008 85);
+  --color-surface-hover: oklch(0.935 0.009 85);
+  --color-fg: oklch(0.2 0.012 70);
+  --color-fg-soft: oklch(0.34 0.012 70);
+  --color-muted: oklch(0.5 0.014 70);
+  --color-faint: oklch(0.66 0.012 70);
+  --color-line: oklch(0 0 0 / 8%);
+  --color-line-strong: oklch(0 0 0 / 16%);
+  --color-accent: oklch(0.58 0.15 50);
+  --color-accent-soft: oklch(0.58 0.15 50 / 12%);
+  --color-accent-fg: oklch(0.99 0.003 85);
 
-  --radius-sm: 6px;
+--radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-xl: 28px;
@@ -40,7 +41,7 @@
 /* ------------------------------------------------------------------ */
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
@@ -70,6 +71,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Fine film grain over the whole page. Very low opacity; adds depth to flat black. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
 }
 
 ::selection {
@@ -153,6 +168,43 @@ button {
     background-size: 160px 160px;
     mix-blend-mode: overlay;
   }
+}
+
+/* Soft accent glow used behind hero sections */
+@utility bg-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(60% 50% at 20% 0%, oklch(0.58 0.15 50 / 10%), transparent 70%),
+    radial-gradient(40% 40% at 90% 20%, oklch(0.58 0.15 50 / 5%), transparent 70%);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+/* Card that lifts on hover */
+@utility card-lift {
+  transition:
+    transform 400ms var(--ease-out-expo),
+    border-color 300ms,
+    background-color 300ms,
+    box-shadow 400ms var(--ease-out-expo);
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 1px 0 0 oklch(1 0 0 / 60%) inset,
+      0 18px 40px -22px oklch(0 0 0 / 22%);
+  }
+}
+
+/* Photo frame with a soft bottom fade into the page */
+@utility photo-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  box-shadow: 0 24px 60px -30px oklch(0 0 0 / 35%);
 }
 
 /* Interactive link underline that grows from the left */

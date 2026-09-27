@@ -15,29 +15,25 @@ export const metadata: Metadata = {
 };
 
 const strengths = [
-  { name: "Arranger", how: "I organize people, tools, and timelines into systems that keep momentum." },
-  { name: "Achiever", how: "I set a high bar and push work from idea to a measurable result." },
-  { name: "Command", how: "I lead with clarity when a room needs direction, and take the decision when nobody else will." },
-  { name: "Focus", how: "I prioritize ruthlessly. The few things that matter most get finished." },
-  { name: "Strategic", how: "I see patterns early and keep alternative paths ready." },
+  { name: "Arranger", how: "People, tools, and timelines into systems that keep moving." },
+  { name: "Achiever", how: "From idea to a measurable result." },
+  { name: "Command", how: "Clear direction when nobody else will give it." },
+  { name: "Focus", how: "The few things that matter, finished." },
+  { name: "Strategic", how: "Patterns early. Alternatives ready." },
 ];
 
 const campus = [
-  "Course Assistant for MATH 112, teaching two discussion sections and 70+ students a semester",
-  "Senior Mentor and Families Coordinator, Illinois Business Council, one of 22 chosen from 400+ applicants",
-  "Tau Beta Pi professional committee, helped plan the TBP Engineering Career Fair",
-  "Engineering Alumni Ambassador, organized alumni events and produced outreach media",
-  "Management Consultant, Students Consulting for Non-Profit Organizations",
-  "Silicon Valley Entrepreneurship Workshop, one of 25 selected from 300+ applicants",
-  "Cozad New Venture Challenge, founder of Alligator AI",
-  "Officer, Jain Students Association; volunteer, Young Jains of America",
+  "Course Assistant, MATH 112. Two sections, 70+ students a semester",
+  "Senior Mentor, Illinois Business Council. 22 chosen from 400+",
+  "Tau Beta Pi. Helped plan the Engineering Career Fair",
+  "Silicon Valley Entrepreneurship Workshop. 25 chosen from 300+",
+  "Cozad New Venture Challenge, with Alligator AI",
 ];
 
 const honors = [
-  "Outstanding Junior Award (Richard N. Baxendale) and Outstanding Senior Award, ISE Department",
-  "James Scholar and five-time Dean's List",
-  "Tau Beta Pi engineering honor society",
-  "Illinois Engineering Achievement and Outstanding Scholarships",
+  "ISE Outstanding Junior and Outstanding Senior Awards",
+  "James Scholar, five-time Dean's List",
+  "Tau Beta Pi",
 ];
 
 export default function AboutPage() {
@@ -51,7 +47,7 @@ export default function AboutPage() {
             <em className="text-accent">scales.</em>
           </>
         }
-        intro="Mumbai-born, Illinois-trained, Bay Area-based. An engineer by education who found that the most interesting systems to build are the ones that turn a product into a business."
+        intro="Mumbai-born. Illinois-trained. Bay Area-based."
       />
 
       {/* Story + portrait */}
@@ -61,43 +57,26 @@ export default function AboutPage() {
             <div className="prose">
               <p>
                 I grew up in Mumbai in a family that builds businesses. My father and uncle
-                founded a paper trading company in 1999 and grew it from a single dealership to
-                thousands of tonnes a month, and dinner-table conversation was about customers,
-                credit, and what the mills were doing. I did not know it at the time, but that was
-                my first course in go-to-market.
+                started a paper trading company in 1999. Dinner was about customers, credit, and
+                the mills. That was my first course in go-to-market.
               </p>
               <p>
-                I came to the Grainger College of Engineering at Illinois in 2022 to study
-                industrial engineering, then added a second degree in technology entrepreneurship
-                because I kept wandering across the street to the business building. Industrial
-                engineering taught me to see workflows, bottlenecks, and simulation. Entrepreneurship
-                taught me that none of it matters until someone pays for it. I graduated in May 2026
-                with both degrees and a 3.94.
+                At Illinois I studied industrial engineering, then added technology
+                entrepreneurship. One degree taught me to see systems. The other taught me nothing
+                matters until someone pays. I graduated in May 2026 with both and a 3.94.
               </p>
               <p>
-                Along the way I underwrote commercial real estate in Chicago, wrote the product
-                thesis for India&apos;s first real-estate portfolio management service, rebuilt the
-                CRM at an energy fintech, and then talked that fintech into sponsoring my
-                department&apos;s senior capstone so the students after me would get a real problem
-                to solve. I taught calculus discussion sections for two years, because explaining a
-                thing is the best way to find out whether you understand it.
+                Along the way: underwriting in Chicago, a product thesis in Mumbai, a rebuilt CRM at
+                an energy fintech, and two years teaching calculus sections. Then Heymarket as first
+                GTM engineer, and Shiplight as founding GTM hire. One foot in customer conversations,
+                one in the codebase, accountable for the number.
               </p>
               <p>
-                In my final semester I joined Heymarket as their first go-to-market engineer, and
-                a month after graduation I joined Shiplight as the founding GTM hire. That is the
-                role I have been training for without knowing it: one foot in customer conversations,
-                one foot in the codebase, accountable for the number.
+                Since 2018 I have run a small career-guidance program for tenth-graders in Pundhra,
+                a village in Gujarat. It is the project I have kept the longest.
               </p>
               <p>
-                Since 2018 I have also run a small vocational education initiative in Pundhra, a
-                village in Gujarat, helping tenth-graders with limited access to guidance see what
-                careers exist beyond the ones they can see from home. It is the project I have kept
-                the longest.
-              </p>
-              <p>
-                What I want next is to build a company. Not a specific one yet, but the kind that
-                starts with an expensive, urgent problem and a founding team that can both sell and
-                ship. Everything on this site is practice.
+                Next, I want to build a company. Everything on this site is practice.
               </p>
             </div>
           </Reveal>
@@ -113,7 +92,7 @@ export default function AboutPage() {
                 className="aspect-[3/2] w-full object-cover"
               />
               <figcaption className="px-4 py-3 text-xs text-faint">
-                San Francisco Bay, January 2025, the week I decided this was where I wanted to build.
+                San Francisco Bay, January 2025.
               </figcaption>
             </figure>
             <figure className="overflow-hidden rounded-lg border border-line bg-surface">
@@ -126,7 +105,7 @@ export default function AboutPage() {
                 className="aspect-[3/2] w-full object-cover"
               />
               <figcaption className="px-4 py-3 text-xs text-faint">
-                Silicon Valley Entrepreneurship Workshop, with the Technology Entrepreneur Center cohort.
+                Silicon Valley Entrepreneurship Workshop cohort.
               </figcaption>
             </figure>
           </Reveal>
@@ -152,10 +131,9 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr]">
             <Reveal>
               <p className="eyebrow mb-3">How I work</p>
-              <h2 className="font-display text-3xl text-fg sm:text-4xl">Five strengths, in my words</h2>
+              <h2 className="font-display text-3xl text-fg sm:text-4xl">Five strengths</h2>
               <p className="mt-5 text-pretty leading-relaxed text-muted">
-                My CliftonStrengths profile, which turned out to be an accurate description of how I
-                behave in a room where nothing is defined yet.
+                CliftonStrengths, in my words.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
@@ -203,8 +181,7 @@ export default function AboutPage() {
                 <p className="eyebrow">Education</p>
                 <p className="mt-2 font-display text-xl text-fg">University of Illinois Urbana-Champaign</p>
                 <p className="mt-1 text-sm text-muted">
-                  B.Sc. Industrial Engineering and B.Sc. Technology Entrepreneurship, Grainger College of
-                  Engineering. GPA 3.94. Graduated May 2026.
+                  B.Sc. Industrial Engineering + B.Sc. Technology Entrepreneurship. 3.94. May 2026.
                 </p>
               </div>
             </Reveal>
@@ -217,12 +194,9 @@ export default function AboutPage() {
         <div className="container-page py-16 sm:py-20">
           <Reveal className="max-w-2xl">
             <p className="eyebrow mb-3">Off hours</p>
-            <h2 className="font-display text-3xl text-fg">What I read, trade, and argue about</h2>
+            <h2 className="font-display text-3xl text-fg">Off hours</h2>
             <p className="mt-5 text-pretty leading-relaxed text-muted">
-              Options strategies and commodity futures, which I studied formally and trade carefully.
-              Macroeconomics, especially the shift toward state-led industrial strategy. Ray Dalio and
-              anything on how systems fail. And I keep a running list of ideas and emerging
-              technologies, on the advice of a founder I met in the Valley.
+              Options and commodity futures. Macroeconomics. Ray Dalio. A running list of ideas.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a

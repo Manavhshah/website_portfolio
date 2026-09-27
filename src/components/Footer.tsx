@@ -22,8 +22,7 @@ export default function Footer() {
               <span className="text-accent">.</span>
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-              {site.tagline} Based in the {site.location}. Open to conversations
-              about early go-to-market, founding roles, and things worth building.
+              {site.tagline} {site.location}.
             </p>
           </div>
 
@@ -65,7 +64,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-2 border-t border-line pt-6 text-xs text-faint sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} {site.fullName}</p>
-          <p>Built with Next.js and MDX. Content is mine, unless I say otherwise.</p>
+          <p>Built with Next.js and MDX.</p>
         </div>
       </div>
     </footer>

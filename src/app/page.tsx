@@ -10,30 +10,12 @@ import Timeline from "@/components/Timeline";
 import Reveal from "@/components/Reveal";
 
 const capabilities = [
-  {
-    title: "Find the right people",
-    body: "Signal-based sourcing from public behavior, enrichment, and qualification. Lists that refresh themselves instead of decaying.",
-  },
-  {
-    title: "Start conversations that get answered",
-    body: "Persona-specific outbound, reply handling in the founder's voice, and playbooks the next hire can pick up.",
-  },
-  {
-    title: "Make growth measurable",
-    body: "Funnel instrumentation across GA4, PostHog, and Search Console, with definitions the team can defend.",
-  },
-  {
-    title: "Ship the fix myself",
-    body: "Python, SQL, React, and coding agents. When the funnel is broken in the codebase, I open the pull request.",
-  },
-  {
-    title: "Run the launch",
-    body: "Positioning, demos, video, partner coordination, and launch-day communications, on a deadline.",
-  },
-  {
-    title: "Model the decision",
-    body: "Underwriting models, pricing simulations, and forecasting frameworks from an engineering education and three finance roles.",
-  },
+  { title: "Find the right people", body: "Sourcing from behavior, not titles." },
+  { title: "Start conversations", body: "Outbound people actually answer." },
+  { title: "Make growth measurable", body: "Funnels the founders can trust." },
+  { title: "Ship the fix myself", body: "Python, SQL, React, coding agents." },
+  { title: "Run the launch", body: "Video, demos, partners, launch day." },
+  { title: "Model the decision", body: "Underwriting, pricing, forecasting." },
 ];
 
 export default function Home() {
@@ -74,8 +56,10 @@ export default function Home() {
       />
 
       {/* Hero */}
-      <section className="container-page pt-16 pb-20 sm:pt-28 sm:pb-28">
-        <div className="grid items-end gap-12 lg:grid-cols-[1.35fr_1fr]">
+      <section className="relative">
+        <div className="bg-glow" aria-hidden />
+        <div className="container-page pt-16 pb-16 sm:pt-28 sm:pb-20">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
           <div>
             <p className="eyebrow mb-5 animate-fade-up">
               {site.role} · {site.location}
@@ -84,10 +68,9 @@ export default function Home() {
               Engineer who builds the{" "}
               <em className="text-accent">commercial machine.</em>
             </h1>
-            <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-muted animate-fade-up delay-2 sm:text-xl">
-              I take a product with early customers and build the systems that turn it
-              into a business: sourcing, outbound, measurement, content, and launches.
-              Industrial engineer by training, founding go-to-market operator by choice.
+            <p className="mt-7 max-w-md text-pretty text-lg leading-relaxed text-muted animate-fade-up delay-2 sm:text-xl">
+              Sourcing, outbound, measurement, launches. The systems that turn an early
+              product into a business.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3 animate-fade-up delay-3">
               <Link
@@ -116,7 +99,7 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto w-full max-w-sm animate-fade-up delay-2 lg:max-w-none">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-line bg-surface">
+            <div className="photo-frame aspect-[4/5]">
               <Image
                 src="/images/headshot.jpg"
                 alt="Manav Shah"
@@ -126,8 +109,22 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <p className="mt-3 text-xs text-faint">{site.now}</p>
+            <p className="mt-4 text-pretty text-sm leading-relaxed text-muted">
+              <span className="eyebrow mr-2 text-accent">Now</span>
+              {site.now}
+            </p>
           </div>
+        </div>
+
+        {/* Credential strip */}
+        <div className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-line pt-6 animate-fade-up delay-4 sm:mt-20">
+          <span className="eyebrow">Built with</span>
+          {["Shiplight", "Heymarket", "Innovo Markets", "Mag Mile Capital", "Integrow", "UIUC Grainger"].map((name) => (
+            <span key={name} className="font-display text-lg text-fg-soft sm:text-xl">
+              {name}
+            </span>
+          ))}
+        </div>
         </div>
       </section>
 
@@ -135,8 +132,8 @@ export default function Home() {
       <section className="container-page py-16 sm:py-20">
         <Reveal>
           <SectionHeading
-            eyebrow="Selected work"
-            title="Three things I am proud of"
+            eyebrow="Work"
+            title="Selected work"
             link={{ href: "/work", label: "All work" }}
           />
         </Reveal>
@@ -153,12 +150,13 @@ export default function Home() {
       <section className="hairline">
         <div className="container-page py-16 sm:py-20">
           <Reveal>
-            <SectionHeading eyebrow="What I do" title="The parts of go-to-market I can own end to end" />
+            <SectionHeading eyebrow="What I do" title="Go-to-market, end to end" />
           </Reveal>
-          <ul className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((c, i) => (
-              <Reveal as="li" key={c.title} delay={i * 0.05}>
-                <h3 className="text-lg font-medium text-fg">{c.title}</h3>
+              <Reveal as="li" key={c.title} delay={i * 0.05} className="border-t border-line pt-5">
+                <p className="eyebrow text-accent">0{i + 1}</p>
+                <h3 className="mt-3 text-lg font-medium text-fg">{c.title}</h3>
                 <p className="mt-2 text-pretty text-[0.95rem] leading-relaxed text-muted">{c.body}</p>
               </Reveal>
             ))}
@@ -176,9 +174,7 @@ export default function Home() {
                 From Mumbai to Grainger to the Bay
               </h2>
               <p className="mt-5 text-pretty leading-relaxed text-muted">
-                A double degree in industrial engineering and technology entrepreneurship,
-                three finance and fintech roles, two startups as an early go-to-market hire,
-                and one company of my own. Each stop added a tool.
+                Two degrees, three finance roles, two startups, one company of my own.
               </p>
               <Link
                 href="/about"
@@ -222,11 +218,10 @@ export default function Home() {
             <div className="max-w-2xl">
               <p className="eyebrow mb-4">Get in touch</p>
               <h2 className="font-display text-balance text-4xl text-fg sm:text-5xl">
-                Building something early and need the commercial side to move as fast as the product?
+                Building something early? Let&apos;s talk.
               </h2>
               <p className="mt-6 text-pretty text-lg text-muted">
-                I am always happy to talk about go-to-market, founding roles, or an idea you are
-                turning over. Email is best. Thirty minutes on my calendar works too.
+                Email is best. Thirty minutes on my calendar works too.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a

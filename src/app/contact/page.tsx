@@ -52,7 +52,7 @@ export default function ContactPage() {
             Let&apos;s <em className="text-accent">talk.</em>
           </>
         }
-        intro="Founders building something early, people working on go-to-market problems, or anyone with an idea they cannot stop thinking about. I answer email the same day."
+        intro="Founders, operators, students. I answer email the same day."
       />
 
       <section className="container-page pb-20">
@@ -103,9 +103,7 @@ export default function ContactPage() {
 
         <Reveal delay={0.3}>
           <p className="mt-10 max-w-xl text-sm leading-relaxed text-faint">
-            Based in the {site.location}. Happy to meet in person in San Francisco, or on a call
-            from anywhere. If you are a student figuring out the engineering-to-business path, I
-            make time for those conversations too.
+            {site.location}. In person in San Francisco, or a call from anywhere.
           </p>
         </Reveal>
       </section>

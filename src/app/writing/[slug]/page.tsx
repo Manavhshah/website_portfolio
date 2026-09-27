@@ -6,6 +6,7 @@ import { getAll, getBySlug, getNeighbours } from "@/lib/content";
 import { renderMdx } from "@/lib/mdx";
 import { formatDate } from "@/lib/utils";
 import { site, siteUrl } from "@/content/site";
+import ReadingProgress from "@/components/ReadingProgress";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -57,6 +58,7 @@ export default async function WritingDetail({ params }: Props) {
 
   return (
     <article>
+      <ReadingProgress />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

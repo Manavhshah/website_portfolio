@@ -19,8 +19,8 @@ export default function WorkPage() {
     <>
       <PageHeader
         eyebrow="Work"
-        title="Systems I built, and what they did"
-        intro="Every entry below is something I owned. Numbers come with their boundaries, because a metric without one is decoration."
+        title="Work"
+        intro="Seven things I owned. Every number has a boundary."
       />
       <section className="container-page pb-16">
         <TagFilter

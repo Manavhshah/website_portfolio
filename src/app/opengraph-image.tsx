@@ -16,8 +16,8 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          background: "#151412",
-          color: "#f1eee8",
+          background: "#faf9f6",
+          color: "#1f1c18",
           fontFamily: "Georgia, serif",
         }}
       >
@@ -27,7 +27,7 @@ export default function OpenGraphImage() {
             fontSize: 22,
             letterSpacing: 4,
             textTransform: "uppercase",
-            color: "#9a9489",
+            color: "#7a746b",
             fontFamily: "monospace",
           }}
         >
@@ -37,11 +37,11 @@ export default function OpenGraphImage() {
           <div style={{ display: "flex", fontSize: 84, lineHeight: 1.02, letterSpacing: -1 }}>
             {site.name}
           </div>
-          <div style={{ display: "flex", fontSize: 40, lineHeight: 1.15, color: "#e6b86a", maxWidth: 900 }}>
+          <div style={{ display: "flex", fontSize: 40, lineHeight: 1.15, color: "#b8632a", maxWidth: 900 }}>
             {site.tagline}
           </div>
         </div>
-        <div style={{ display: "flex", fontSize: 22, color: "#9a9489", fontFamily: "monospace" }}>
+        <div style={{ display: "flex", fontSize: 22, color: "#7a746b", fontFamily: "monospace" }}>
           {site.location}
         </div>
       </div>

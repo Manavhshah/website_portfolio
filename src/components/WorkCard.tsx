@@ -19,7 +19,8 @@ export default function WorkCard({
     <Link
       href={`/work/${slug}`}
       className={cn(
-        "group relative flex h-full flex-col rounded-lg border border-line bg-bg-elevated p-6 transition-[border-color,background-color,transform] duration-300 hover:border-line-strong hover:bg-surface sm:p-7",
+        "card-lift group relative flex h-full flex-col overflow-hidden rounded-lg border border-line bg-bg-elevated p-6 hover:border-line-strong hover:bg-surface sm:p-7",
+        "before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-accent before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100",
         className,
       )}
     >
