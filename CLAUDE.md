@@ -10,6 +10,7 @@ Personal portfolio for Manav Shah. Rebuilt September 2026. Read `README.md` firs
 - **`npm run build` must pass** before any commit. It validates frontmatter and pre-renders every route.
 - **Design tokens live in `src/app/globals.css`** under `@theme`. Change colors and type there, not with one-off hex values in components.
 - **Motion is restrained.** `Reveal` for scroll-in, small hover transitions, and nothing that moves without user input. Everything respects `prefers-reduced-motion`.
+- **Minimal, not decorated.** Manav pointed at minimal.gallery as the reference. Lists over cards, plain sans labels over mono caps, no glow or grain, one serif statement per page. If a change adds chrome, it is probably wrong.
 
 ## Structure
 

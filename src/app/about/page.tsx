@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { site } from "@/content/site";
 import PageHeader from "@/components/PageHeader";
 import Timeline from "@/components/Timeline";
@@ -10,9 +9,18 @@ import Reveal from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Manav Shah grew up in Mumbai, studied industrial engineering and technology entrepreneurship at Illinois, and now builds go-to-market systems for early-stage startups in the Bay Area.",
+    "Manav Shah grew up in Mumbai, studied industrial engineering and technology entrepreneurship at Illinois, and builds go-to-market systems for early-stage startups in the Bay Area.",
   alternates: { canonical: "/about" },
 };
+
+const capabilities = [
+  { title: "Find the right people", body: "Sourcing from behavior, not titles." },
+  { title: "Start conversations", body: "Outbound people actually answer." },
+  { title: "Make growth measurable", body: "Funnels the founders can trust." },
+  { title: "Ship the fix myself", body: "Python, SQL, React, coding agents." },
+  { title: "Run the launch", body: "Video, demos, partners, launch day." },
+  { title: "Model the decision", body: "Underwriting, pricing, forecasting." },
+];
 
 const strengths = [
   { name: "Arranger", how: "People, tools, and timelines into systems that keep moving." },
@@ -36,11 +44,29 @@ const honors = [
   "Tau Beta Pi",
 ];
 
+function Section({
+  label,
+  children,
+  className,
+}: {
+  label: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <section className={className}>
+      <div className="container-page grid gap-8 border-t border-line py-14 sm:py-16 lg:grid-cols-[12rem_1fr]">
+        <h2 className="text-sm text-muted">{label}</h2>
+        <div>{children}</div>
+      </div>
+    </section>
+  );
+}
+
 export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="About"
         title={
           <>
             I like finding the pattern, simplifying it, and turning it into something that{" "}
@@ -50,9 +76,8 @@ export default function AboutPage() {
         intro="Mumbai-born. Illinois-trained. Bay Area-based."
       />
 
-      {/* Story + portrait */}
-      <section className="container-page pb-16">
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
+      <Section label="Story">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
           <Reveal>
             <div className="prose">
               <p>
@@ -75,149 +100,119 @@ export default function AboutPage() {
                 Since 2018 I have run a small career-guidance program for tenth-graders in Pundhra,
                 a village in Gujarat. It is the project I have kept the longest.
               </p>
-              <p>
-                Next, I want to build a company. Everything on this site is practice.
-              </p>
+              <p>Next, I want to build a company. Everything on this site is practice.</p>
             </div>
           </Reveal>
-
           <Reveal delay={0.1} className="space-y-4">
-            <figure className="overflow-hidden rounded-lg border border-line bg-surface">
+            <figure>
               <Image
                 src="/images/sf-bay.jpg"
                 alt="Manav on the San Francisco Bay with the city skyline behind him"
                 width={2000}
                 height={1334}
-                sizes="(min-width: 1024px) 26rem, 100vw"
-                className="aspect-[3/2] w-full object-cover"
+                sizes="(min-width: 1024px) 24rem, 100vw"
+                className="aspect-[3/2] w-full rounded-md object-cover"
               />
-              <figcaption className="px-4 py-3 text-xs text-faint">
-                San Francisco Bay, January 2025.
-              </figcaption>
+              <figcaption className="mt-2 text-xs text-faint">San Francisco Bay, January 2025.</figcaption>
             </figure>
-            <figure className="overflow-hidden rounded-lg border border-line bg-surface">
+            <figure>
               <Image
                 src="/images/sv-workshop.jpg"
                 alt="Manav laughing with classmates at the Silicon Valley Entrepreneurship Workshop"
                 width={2000}
                 height={1334}
-                sizes="(min-width: 1024px) 26rem, 100vw"
-                className="aspect-[3/2] w-full object-cover"
+                sizes="(min-width: 1024px) 24rem, 100vw"
+                className="aspect-[3/2] w-full rounded-md object-cover"
               />
-              <figcaption className="px-4 py-3 text-xs text-faint">
+              <figcaption className="mt-2 text-xs text-faint">
                 Silicon Valley Entrepreneurship Workshop cohort.
               </figcaption>
             </figure>
           </Reveal>
         </div>
-      </section>
+      </Section>
 
-      {/* Timeline */}
-      <section className="hairline">
-        <div className="container-page py-16 sm:py-20">
-          <Reveal>
-            <p className="eyebrow mb-3">Timeline</p>
-            <h2 className="font-display text-3xl text-fg sm:text-4xl">Where I have been</h2>
-          </Reveal>
-          <Reveal delay={0.1} className="mt-10 max-w-3xl">
-            <Timeline />
-          </Reveal>
-        </div>
-      </section>
+      <Section label="What I do">
+        <Reveal>
+          <ul className="grid gap-x-10 gap-y-6 sm:grid-cols-2">
+            {capabilities.map((c) => (
+              <li key={c.title}>
+                <p className="text-fg">{c.title}</p>
+                <p className="mt-1 text-[0.95rem] text-muted">{c.body}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </Section>
 
-      {/* Strengths */}
-      <section className="hairline">
-        <div className="container-page py-16 sm:py-20">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr]">
-            <Reveal>
-              <p className="eyebrow mb-3">How I work</p>
-              <h2 className="font-display text-3xl text-fg sm:text-4xl">Five strengths</h2>
-              <p className="mt-5 text-pretty leading-relaxed text-muted">
-                CliftonStrengths, in my words.
-              </p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <dl className="divide-y divide-line border-y border-line">
-                {strengths.map((s) => (
-                  <div key={s.name} className="grid gap-2 py-5 sm:grid-cols-[9rem_1fr] sm:gap-6">
-                    <dt className="font-display text-xl text-fg">{s.name}</dt>
-                    <dd className="text-pretty text-[0.95rem] leading-relaxed text-muted">{s.how}</dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      <Section label="Timeline">
+        <Reveal className="max-w-2xl">
+          <Timeline />
+        </Reveal>
+      </Section>
 
-      {/* Campus + honors */}
-      <section className="hairline">
-        <div className="container-page py-16 sm:py-20">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <Reveal>
-              <p className="eyebrow mb-3">At Illinois</p>
-              <h2 className="font-display text-3xl text-fg">Beyond the classroom</h2>
-              <ul className="mt-6 space-y-3">
-                {campus.map((c) => (
-                  <li key={c} className="flex gap-3 text-pretty text-[0.95rem] leading-relaxed text-muted">
-                    <span className="mt-[0.6rem] h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden />
-                    {c}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="eyebrow mb-3">Recognition</p>
-              <h2 className="font-display text-3xl text-fg">Honors</h2>
-              <ul className="mt-6 space-y-3">
-                {honors.map((h) => (
-                  <li key={h} className="flex gap-3 text-pretty text-[0.95rem] leading-relaxed text-muted">
-                    <span className="mt-[0.6rem] h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-10 rounded-lg border border-line bg-bg-elevated p-5">
-                <p className="eyebrow">Education</p>
-                <p className="mt-2 font-display text-xl text-fg">University of Illinois Urbana-Champaign</p>
-                <p className="mt-1 text-sm text-muted">
-                  B.Sc. Industrial Engineering + B.Sc. Technology Entrepreneurship. 3.94. May 2026.
-                </p>
+      <Section label="Strengths">
+        <Reveal>
+          <dl className="max-w-2xl divide-y divide-line border-y border-line">
+            {strengths.map((s) => (
+              <div key={s.name} className="grid gap-1 py-4 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                <dt className="text-fg">{s.name}</dt>
+                <dd className="text-[0.95rem] text-muted">{s.how}</dd>
               </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+            ))}
+          </dl>
+          <p className="mt-3 text-xs text-faint">CliftonStrengths, in my words.</p>
+        </Reveal>
+      </Section>
 
-      {/* Off hours */}
-      <section className="hairline">
-        <div className="container-page py-16 sm:py-20">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow mb-3">Off hours</p>
-            <h2 className="font-display text-3xl text-fg">Off hours</h2>
-            <p className="mt-5 text-pretty leading-relaxed text-muted">
-              Options and commodity futures. Macroeconomics. Ray Dalio. A running list of ideas.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={site.links.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-bg transition-colors hover:bg-accent"
-              >
-                Download résumé
-                <ArrowUpRight className="h-4 w-4" aria-hidden />
-              </a>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-2.5 text-sm text-fg transition-colors hover:border-accent hover:text-accent"
-              >
-                Say hello
-              </Link>
+      <Section label="Illinois">
+        <Reveal>
+          <div className="grid gap-10 sm:grid-cols-2">
+            <div>
+              <p className="text-fg">Beyond the classroom</p>
+              <ul className="mt-3 space-y-2 text-[0.95rem] text-muted">
+                {campus.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
             </div>
-          </Reveal>
-        </div>
-      </section>
+            <div>
+              <p className="text-fg">Honors</p>
+              <ul className="mt-3 space-y-2 text-[0.95rem] text-muted">
+                {honors.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+              <p className="mt-6 text-fg">Education</p>
+              <p className="mt-3 text-[0.95rem] text-muted">
+                University of Illinois Urbana-Champaign. B.Sc. Industrial Engineering + B.Sc.
+                Technology Entrepreneurship. 3.94. May 2026.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </Section>
+
+      <Section label="Off hours">
+        <Reveal>
+          <p className="max-w-2xl text-[0.95rem] text-muted">
+            Options and commodity futures. Macroeconomics. Ray Dalio. A running list of ideas.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+            <a
+              href={site.links.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline text-fg"
+            >
+              Résumé
+            </a>
+            <Link href="/contact" className="link-underline text-fg">
+              Contact
+            </Link>
+          </div>
+        </Reveal>
+      </Section>
     </>
   );
 }

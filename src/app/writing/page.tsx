@@ -15,7 +15,6 @@ export default function WritingPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Writing"
         title="Writing"
         intro="Short notes, written after doing the thing."
       />

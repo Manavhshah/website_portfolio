@@ -1,71 +1,35 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { site } from "@/content/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const external = [
+  const links = [
+    { label: "Email", href: `mailto:${site.email}` },
     { label: "LinkedIn", href: site.links.linkedin },
     { label: "GitHub", href: site.links.github },
     { label: "X", href: site.links.x },
     { label: "Résumé", href: site.links.resume },
-    { label: "Email", href: `mailto:${site.email}` },
   ];
 
   return (
-    <footer className="hairline mt-24">
-      <div className="container-page py-14">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
-            <p className="font-display text-2xl text-fg">
-              {site.name}
-              <span className="text-accent">.</span>
-            </p>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-              {site.tagline} {site.location}.
-            </p>
-          </div>
-
-          <div>
-            <p className="eyebrow mb-4">Pages</p>
-            <ul className="space-y-2.5">
-              {[{ label: "Home", href: "/" }, ...site.nav].map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="link-underline text-sm text-fg-soft hover:text-fg"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="eyebrow mb-4">Elsewhere</p>
-            <ul className="space-y-2.5">
-              {external.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    target={item.href.startsWith("mailto:") ? undefined : "_blank"}
-                    rel="noopener noreferrer"
-                    className="link-underline inline-flex items-center gap-1 text-sm text-fg-soft hover:text-fg"
-                  >
-                    {item.label}
-                    <ArrowUpRight className="h-3.5 w-3.5 text-faint" aria-hidden />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-14 flex flex-col gap-2 border-t border-line pt-6 text-xs text-faint sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} {site.fullName}</p>
-          <p>Built with Next.js and MDX.</p>
-        </div>
+    <footer className="mt-12 border-t border-line">
+      <div className="container-page flex flex-col gap-4 py-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-faint">
+          © {year} {site.fullName}
+        </p>
+        <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          {links.map((l) => (
+            <li key={l.href}>
+              <a
+                href={l.href}
+                target={l.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel="noopener noreferrer"
+                className="link-underline text-muted hover:text-fg"
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );

@@ -21,8 +21,8 @@ Set `NEXT_PUBLIC_SITE_URL` (for example `https://manavshah.com`) in production s
 | Career and education timeline | `src/content/timeline.ts` |
 | Case studies (one file each) | `src/content/work/*.mdx` |
 | Essays (one file each) | `src/content/writing/*.mdx` |
-| About page prose, strengths, campus list, honors | `src/app/about/page.tsx` |
-| Home page capability list and hero copy | `src/app/page.tsx` |
+| Home page statement | `src/app/page.tsx` |
+| Capability list, strengths, campus list, honors | `src/app/about/page.tsx` |
 | Résumé PDF | `public/documents/Manav_Shah_Resume.pdf` |
 | Photos | `public/images/` |
 | Colors, type, spacing tokens, prose styles | `src/app/globals.css` |
@@ -43,9 +43,7 @@ role: "Your title"
 period: "Jan 2027 — Present"
 date: "2027-01-01"            # used for sorting, newest first
 tags: ["Go-to-market", "Growth engineering"]
-featured: true                # optional: show on the home page (max 3)
-order: 1                      # optional: order among featured
-status: "Paused"              # optional: pill on the card
+status: "Paused"              # optional: shown after the role in lists
 link:                         # optional
   href: "https://example.com"
   label: "example.com"
@@ -83,9 +81,9 @@ Create `src/content/writing/<slug>.mdx` with `title`, `summary`, `date`, and `ta
 
 Replace `public/documents/Manav_Shah_Resume.pdf`. Keep the filename so existing links keep working.
 
-## Update the status line or a link
+## Update a link or the role line
 
-Edit `src/content/site.ts`. The `now` field is the one-sentence status under the hero photo.
+Edit `src/content/site.ts`. `role` and `location` appear under the home page statement.
 
 ## Deploy
 
