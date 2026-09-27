@@ -28,13 +28,25 @@ export const site = {
   now: "Leading go-to-market at Shiplight, an AI software-testing startup.",
 } as const;
 
+/**
+ * Canonical site origin. Accepts NEXT_PUBLIC_SITE_URL with or without a
+ * protocol, falls back to Vercel's deployment host, then localhost.
+ * Never throws: an invalid value falls back rather than failing the build.
+ */
 export function siteUrl(): string {
-  const raw =
-    process.env.NEXT_PUBLIC_SITE_URL ||
-    (process.env.VERCEL_PROJECT_PRODUCTION_URL
-      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-      : process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : "http://localhost:3000");
-  return raw.replace(/\/$/, "");
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.VERCEL_URL,
+  ];
+  for (const c of candidates) {
+    if (!c) continue;
+    const withProtocol = /^https?:\/\//.test(c) ? c : `https://${c}`;
+    try {
+      return new URL(withProtocol).origin;
+    } catch {
+      // ignore and try the next candidate
+    }
+  }
+  return "http://localhost:3000";
 }
