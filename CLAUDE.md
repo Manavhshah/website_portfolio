@@ -10,7 +10,9 @@ Personal portfolio for Manav Shah. Rebuilt September 2026. Read `README.md` firs
 - **`npm run build` must pass** before any commit. It validates frontmatter and pre-renders every route.
 - **Design tokens live in `src/app/globals.css`** under `@theme`. Change colors and type there, not with one-off hex values in components.
 - **Motion is restrained.** `Reveal` for scroll-in, small hover transitions, and nothing that moves without user input. Everything respects `prefers-reduced-motion`.
-- **Minimal, not decorated.** Manav pointed at minimal.gallery as the reference. Lists over cards, plain sans labels over mono caps, no glow or grain, one serif statement per page. If a change adds chrome, it is probably wrong.
+- **Minimal base, a few signature interactions.** Manav pointed at minimal.gallery, then said the result was "boring and not fun". The answer was personality, not chrome: draggable photo and note cards in the hero (`HeroCards`), a bio that rewrites itself from soft sell to hard sell (`PitchSlider`, inspired by getcoleman.com), a cursor-following stats preview on the work list (`WorkIndex`), count-up numbers (`CountUp`), word-by-word headline reveal (`SplitText`), and a live SF clock. Keep the page structure quiet; put the play into a small number of deliberate moments. Do not add borders, eyebrows, glows, or grain back.
+- **Hero cards live in `src/components/HeroCards.tsx`.** To add a photo, drop it in `public/images/` and add an entry with desktop percent position and mobile pile offsets. Six cards is the sweet spot.
+- **Pitch copy lives in `src/components/PitchSlider.tsx`.** Five levels, same facts, rising volume. Every number in level 3 and 4 must still trace to the verified metrics.
 
 ## Structure
 

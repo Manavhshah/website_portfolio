@@ -1,14 +1,17 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { site, siteUrl } from "@/content/site";
 import { getAll } from "@/lib/content";
-import WorkRow from "@/components/WorkRow";
 import WritingRow from "@/components/WritingRow";
+import WorkIndex from "@/components/WorkIndex";
+import HeroCards from "@/components/HeroCards";
+import SplitText from "@/components/SplitText";
+import LocalClock from "@/components/LocalClock";
 import Reveal from "@/components/Reveal";
+import PitchSlider from "@/components/PitchSlider";
 
 export default function Home() {
-  const work = getAll("work");
+  const work = getAll("work").map((e) => ({ slug: e.slug, frontmatter: e.frontmatter }));
   const writing = getAll("writing").slice(0, 3);
 
   const jsonLd = {
@@ -36,60 +39,50 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Statement */}
-      <section className="container-page pt-24 pb-24 sm:pt-36 sm:pb-32">
-        <div className="max-w-3xl">
-          <Image
-            src="/images/headshot.jpg"
-            alt="Manav Shah"
-            width={56}
-            height={56}
-            priority
-            className="mb-10 h-14 w-14 rounded-full object-cover object-top animate-fade-up"
-          />
-          <h1 className="font-display text-balance text-[2.4rem] leading-[1.12] text-fg animate-fade-up delay-1 sm:text-5xl lg:text-[3.4rem]">
-            I&apos;m Manav Shah, an industrial engineer who builds the commercial side of
-            early-stage startups. Sourcing, outbound, measurement, launches.
-          </h1>
-          <p className="mt-8 text-lg text-muted animate-fade-up delay-2 sm:text-xl">
-            {site.role}. {site.location}.
+      {/* Hero: statement with cards you can throw around */}
+      <section className="container-page overflow-hidden">
+        <HeroCards>
+          <p className="mb-6 text-sm text-muted animate-fade-up">
+            Manav Shah · {site.location} · <LocalClock />
           </p>
-          <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm animate-fade-up delay-3">
+          <h1 className="font-display text-balance text-[2.6rem] leading-[1.06] text-fg sm:text-6xl lg:text-[4.2rem]">
+            <SplitText text="Engineer who builds the commercial machine." accentFrom={4} delay={0.15} />
+          </h1>
+          <p className="mx-auto mt-7 max-w-md text-pretty text-lg text-muted animate-fade-up delay-3 sm:text-xl">
+            Sourcing, outbound, measurement, launches. The systems that turn an early product
+            into a business.
+          </p>
+          <div className="mt-9 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm animate-fade-up delay-4">
             <Link href="/about" className="link-underline text-fg">
               About
             </Link>
-            <a
-              href={site.links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-underline text-fg"
-            >
+            <a href={site.links.linkedin} target="_blank" rel="noopener noreferrer" className="link-underline text-fg">
               LinkedIn
             </a>
-            <a
-              href={site.links.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-underline text-fg"
-            >
+            <a href={site.links.resume} target="_blank" rel="noopener noreferrer" className="link-underline text-fg">
               Résumé
             </a>
             <a href={`mailto:${site.email}`} className="link-underline text-fg">
               Email
             </a>
           </div>
-        </div>
+        </HeroCards>
+        <p className="pb-4 text-center text-xs text-faint lg:hidden">Drag the cards.</p>
+      </section>
+
+      {/* The pitch, at whatever volume you like */}
+      <section className="container-page pt-12 pb-24">
+        <Reveal>
+          <h2 className="mb-6 text-sm text-muted">The pitch. You pick the volume.</h2>
+          <PitchSlider />
+        </Reveal>
       </section>
 
       {/* Work index */}
       <section className="container-page pb-24">
         <Reveal>
           <h2 className="mb-2 text-sm text-muted">Work</h2>
-          <div className="border-b border-line">
-            {work.map((entry) => (
-              <WorkRow key={entry.slug} entry={entry} />
-            ))}
-          </div>
+          <WorkIndex items={work} />
         </Reveal>
       </section>
 
@@ -119,7 +112,7 @@ export default function Home() {
         <Reveal>
           <p className="max-w-2xl font-display text-3xl leading-snug text-fg sm:text-4xl">
             Building something early?{" "}
-            <a href={`mailto:${site.email}`} className="text-accent link-underline">
+            <a href={`mailto:${site.email}`} className="link-underline text-accent">
               Say hello.
             </a>
           </p>

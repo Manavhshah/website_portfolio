@@ -393,6 +393,51 @@ button {
 }
 
 /* ------------------------------------------------------------------ */
+/* Range input for the pitch slider                                    */
+/* ------------------------------------------------------------------ */
+
+.pitch-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: var(--color-line-strong);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+
+.pitch-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-fg);
+  border: 3px solid var(--color-bg);
+  box-shadow: 0 0 0 1px var(--color-line-strong), 0 6px 16px -6px rgba(0, 0, 0, 0.4);
+  transition: transform 150ms var(--ease-out-expo);
+}
+
+.pitch-range::-webkit-slider-thumb:hover,
+.pitch-range:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.pitch-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-fg);
+  border: 3px solid var(--color-bg);
+  box-shadow: 0 0 0 1px var(--color-line-strong);
+}
+
+.pitch-range:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 8px;
+}
+
+/* ------------------------------------------------------------------ */
 /* Motion helpers                                                      */
 /* ------------------------------------------------------------------ */
 

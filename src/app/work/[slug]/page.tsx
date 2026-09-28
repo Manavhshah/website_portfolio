@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { getAll, getBySlug, getNeighbours } from "@/lib/content";
 import { renderMdx } from "@/lib/mdx";
 import { site } from "@/content/site";
+import CountUp from "@/components/CountUp";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -99,7 +100,9 @@ export default async function WorkDetail({ params }: Props) {
             {fm.highlights.map((h) => (
               <div key={h.label} className="bg-bg-elevated px-5 py-5">
                 <dt className="sr-only">{h.label}</dt>
-                <dd className="font-display text-4xl leading-none text-fg">{h.value}</dd>
+                <dd className="font-display text-4xl leading-none text-fg">
+                  <CountUp value={h.value} />
+                </dd>
                 <dd className="mt-2 text-sm text-muted">{h.label}</dd>
               </div>
             ))}

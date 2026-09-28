@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import CountUp from "@/components/CountUp";
 
 /* ------------------------------------------------------------------ */
 /* Components available inside every .mdx file                         */
@@ -46,7 +47,9 @@ function Stats({
     <div className="stat-grid" style={{ ["--cols" as string]: cols }}>
       {items.map((s) => (
         <div key={s.label}>
-          <div className="font-display text-3xl leading-none text-fg">{s.value}</div>
+          <div className="font-display text-3xl leading-none text-fg">
+            <CountUp value={s.value} />
+          </div>
           <div className="mt-2 text-sm text-muted">{s.label}</div>
         </div>
       ))}
