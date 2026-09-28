@@ -48,8 +48,8 @@ link:                         # optional
   href: "https://example.com"
   label: "example.com"
 highlights:                   # optional: up to three headline numbers
-  - value: "54"
-    label: "merged pull requests"
+  - value: "35%"
+    label: "reply rate across ~400 conversations"
 ---
 
 <Lede>

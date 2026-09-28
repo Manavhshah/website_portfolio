@@ -32,13 +32,13 @@ const levels: { label: string; cta: string; body: string }[] = [
     label: "Assertive",
     cta: "Get in touch today",
     body:
-      "Manav Shah is the rare go-to-market hire who ships the code. Fifty-four merged pull requests, a 35% reply rate on cold outbound, a startup's referring domains more than tripled, a funnel rebuilt from the event definitions up. Founding GTM at Shiplight. Illinois engineer, 3.94 GPA. If you're building something early, you want him in the room.",
+      "Manav Shah is the rare go-to-market hire who ships the code. A Python sourcing system that turned GitHub activity into 4,500+ researched developer profiles, a 35% reply rate on cold outbound, a startup's referring domains more than tripled, a funnel rebuilt from the event definitions up. Founding GTM at Shiplight. Illinois engineer, 3.94 GPA. If you're building something early, you want him in the room.",
   },
   {
     label: "Full send",
     cta: "EMAIL HIM RIGHT NOW",
     body:
-      "You are looking at the commercial machine. Manav Shah pulled 4,553 developer profiles out of raw GitHub behavior, got a third of strangers to reply, tripled a company's referring domains in one summer, shipped 54 pull requests, and fixed the funnel your analytics vendor lied to you about. Two degrees. One founder in progress. Stop scrolling.",
+      "You are looking at the commercial machine. Manav Shah pulled 4,553 developer profiles out of raw GitHub behavior, got a third of strangers to reply, tripled a company's referring domains in one summer, built the search, analytics, and video infrastructure himself, and fixed the funnel your analytics vendor lied to you about. Two degrees. One founder in progress. Stop scrolling.",
   },
 ];
 

@@ -32,7 +32,7 @@ function Callout({ children }: { children: ReactNode }) {
 }
 
 /**
- * <Stats cols={3} items={[{ value: "54", label: "merged PRs" }, ...]} />
+ * <Stats cols={3} items={[{ value: "35%", label: "reply rate" }, ...]} />
  * Renders a compact grid of headline numbers.
  */
 function Stats({
